@@ -1,0 +1,22 @@
+{
+  "name": "extending-harness-demo",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/claims-portal",
+    "packages/iceberg"
+  ],
+  "scripts": {
+    "build:frontend": "npm --workspace @demo/claims-portal run build",
+    "start:frontend": "npm --workspace @demo/claims-portal run start",
+    "lint:frontend": "npm --workspace @demo/claims-portal run lint",
+    "test:e2e": "npm --workspace @demo/claims-portal run test:e2e",
+    "test:backend": "cd services/claims-api && mvn test",
+    "fmt:terraform": "terraform -chdir=infra/terraform fmt -recursive",
+    "validate:terraform": "terraform -chdir=infra/terraform validate",
+    "diagram:iac": "awsdac infra/diagrams/claims-platform.awsdac.yaml -o infra/diagrams/claims-platform.png"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0"
+  }
+}

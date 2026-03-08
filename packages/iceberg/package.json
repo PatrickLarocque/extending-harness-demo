@@ -1,0 +1,10 @@
+{
+  "name": "@intact/iceberg",
+  "version": "0.0.0-demo",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./styles.css": "./src/styles.css",
+    "./tokens.css": "./src/tokens.css"
+  }
+}

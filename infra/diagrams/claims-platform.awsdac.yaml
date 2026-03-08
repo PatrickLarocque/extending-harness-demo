@@ -1,0 +1,141 @@
+Diagram:
+  DefinitionFiles:
+    - Type: URL
+      Url: "https://raw.githubusercontent.com/awslabs/diagram-as-code/main/definitions/definition-for-aws-icons-light.yaml"
+  Resources:
+    Canvas:
+      Type: AWS::Diagram::Canvas
+      Direction: horizontal
+      Children:
+        - User
+        - AWSCloud
+
+    User:
+      Type: AWS::Diagram::Resource
+      Preset: User
+      Title: "Adjuster"
+
+    AWSCloud:
+      Type: AWS::Diagram::Cloud
+      Direction: vertical
+      Preset: AWSCloudNoLogo
+      Children:
+        - Edge
+        - VPC
+        - Observability
+
+    Edge:
+      Type: AWS::Diagram::HorizontalStack
+      Children:
+        - CloudFront
+        - FrontendBucket
+
+    CloudFront:
+      Type: AWS::Diagram::Resource
+      Title: "CloudFront"
+
+    FrontendBucket:
+      Type: AWS::Diagram::Resource
+      Title: "S3 claims portal"
+
+    VPC:
+      Type: AWS::EC2::VPC
+      Direction: vertical
+      Children:
+        - PublicLayer
+        - PrivateLayer
+        - DataLayer
+
+    PublicLayer:
+      Type: AWS::Diagram::HorizontalStack
+      Children:
+        - PublicSubnetA
+        - PublicSubnetB
+
+    PublicSubnetA:
+      Type: AWS::EC2::Subnet
+      Preset: PublicSubnet
+      Children:
+        - ALB
+
+    PublicSubnetB:
+      Type: AWS::EC2::Subnet
+      Preset: PublicSubnet
+
+    ALB:
+      Type: AWS::Diagram::Resource
+      Title: "Application Load Balancer"
+
+    PrivateLayer:
+      Type: AWS::Diagram::HorizontalStack
+      Children:
+        - PrivateSubnetA
+        - PrivateSubnetB
+
+    PrivateSubnetA:
+      Type: AWS::EC2::Subnet
+      Preset: PrivateSubnet
+      Children:
+        - ECSService
+
+    PrivateSubnetB:
+      Type: AWS::EC2::Subnet
+      Preset: PrivateSubnet
+      Children:
+        - ECSTask
+
+    ECSService:
+      Type: AWS::Diagram::Resource
+      Title: "ECS API service"
+
+    ECSTask:
+      Type: AWS::Diagram::Resource
+      Title: "Fargate task"
+
+    DataLayer:
+      Type: AWS::Diagram::HorizontalStack
+      Children:
+        - Database
+        - ECR
+
+    Database:
+      Type: AWS::Diagram::Resource
+      Title: "RDS PostgreSQL"
+
+    ECR:
+      Type: AWS::Diagram::Resource
+      Title: "ECR image repo"
+
+    Observability:
+      Type: AWS::Diagram::Resource
+      Title: "CloudWatch logs"
+
+  Links:
+    - Source: User
+      Target: CloudFront
+      TargetArrowHead:
+        Type: Open
+    - Source: CloudFront
+      Target: FrontendBucket
+      TargetArrowHead:
+        Type: Open
+    - Source: CloudFront
+      Target: ALB
+      TargetArrowHead:
+        Type: Open
+    - Source: ALB
+      Target: ECSService
+      TargetArrowHead:
+        Type: Open
+    - Source: ECSService
+      Target: Database
+      TargetArrowHead:
+        Type: Open
+    - Source: ECSService
+      Target: Observability
+      TargetArrowHead:
+        Type: Open
+    - Source: ECR
+      Target: ECSTask
+      TargetArrowHead:
+        Type: Open

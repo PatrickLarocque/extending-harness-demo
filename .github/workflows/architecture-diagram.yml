@@ -1,0 +1,23 @@
+name: Architecture Diagram
+
+on:
+  pull_request:
+    paths:
+      - "infra/**"
+      - ".github/workflows/architecture-diagram.yml"
+
+jobs:
+  diagram:
+    name: Generate AWS diagram
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+      - run: go install github.com/awslabs/diagram-as-code/cmd/awsdac@latest
+      - run: awsdac infra/diagrams/claims-platform.awsdac.yaml -o infra/diagrams/claims-platform.png
+      - uses: actions/upload-artifact@v5
+        with:
+          name: claims-platform-diagram
+          path: infra/diagrams/claims-platform.png

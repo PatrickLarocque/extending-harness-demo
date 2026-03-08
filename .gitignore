@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.angular/
+coverage/
+target/
+.terraform/
+*.tfstate
+*.tfstate.*
+infra/diagrams/*.png
+playwright-report/
+test-results/
+.DS_Store
