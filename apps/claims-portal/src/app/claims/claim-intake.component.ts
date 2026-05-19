@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, computed, inject, signal } from '@angular/core';
-import { FormField, email, form, required, submit } from '@angular/forms/signals';
+import { FormField, email, form, min, required, submit } from '@angular/forms/signals';
 import { firstValueFrom } from 'rxjs';
 
 type ClaimIntake = {
@@ -38,6 +38,8 @@ export class ClaimIntakeComponent {
     email(path.email, { message: 'Enter a valid email address.' });
     required(path.policyNumber, { message: 'Policy number is required.' });
     required(path.incidentDate, { message: 'Incident date is required.' });
+    min(path.coveredLoss, 0.01, { message: 'Covered loss must be greater than zero.' });
+    min(path.deductible, 0, { message: 'Deductible cannot be negative.' });
   });
 
   readonly submitting = signal(false);
