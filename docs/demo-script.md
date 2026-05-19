@@ -2,7 +2,7 @@
 
 This runbook keeps the live demo focused on harness surface area rather than repository trivia.
 
-## Segment 1: Ticket + Repo + Design System
+## Segment 1: Ticket + Framework Skill
 
 Open `tickets/TICKET-101-intake-form-iceberg.md`.
 
@@ -12,17 +12,31 @@ First, ask the agent without installing any Angular Signal Forms skill:
 
 Then install or enable the Angular Signal Forms skill and ask again:
 
-> Pick up TICKET-101. Migrate the claim intake form from Reactive Forms to Angular 21 Signal Forms, inspect Iceberg before styling, and run the frontend build.
+> Pick up TICKET-101. Migrate the claim intake form from Reactive Forms to Angular 21 Signal Forms and run the frontend build.
 
 What this shows:
 
 - ticket context
 - repo inspection
-- source-aware design-system usage
 - the gap between generic framework guessing and framework-specific skill/docs usage
 - build verification
 
-## Segment 2: Browser Verification
+## Segment 2: Source-Aware Design System
+
+Open `tickets/TICKET-103-iceberg-design-system.md`.
+
+Ask the agent:
+
+> Pick up TICKET-103. Inspect the local Iceberg package first, then improve the claim intake screen so it feels like an Iceberg-based internal workflow. Run the frontend build and use browser screenshots if available.
+
+What this shows:
+
+- package/source inspection
+- design-system adaptation
+- browser/screenshot feedback
+- the difference between guessing UI classes and reading the source
+
+## Segment 3: Browser Verification
 
 Open `tickets/TICKET-102-playwright-screenshots.md`.
 
@@ -36,7 +50,7 @@ What this shows:
 - screenshots as feedback
 - UI verification beyond "the code compiles"
 
-## Segment 3: Infrastructure Diagram
+## Segment 4: Infrastructure Diagram
 
 Open `tickets/TICKET-301-iac-diagram.md`.
 
@@ -50,7 +64,7 @@ What this shows:
 - external CLI/tool usage
 - generated artifact verification
 
-## Segment 4: Backend Git History RCA
+## Segment 5: Backend Git History RCA
 
 Open `tickets/TICKET-201-backend-rca.md`.
 

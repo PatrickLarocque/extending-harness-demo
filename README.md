@@ -33,10 +33,11 @@ awsdac ../diagrams/claims-platform.awsdac.yaml -o ../diagrams/claims-platform.pn
 
 ## Suggested Demo Flow
 
-1. Start with `tickets/TICKET-101-intake-form-iceberg.md` to show an agent reading ticket context, Angular Signal Forms guidance, and the local design-system package.
-2. Use `tickets/TICKET-102-playwright-screenshots.md` to show browser/Playwright verification with screenshots.
-3. Use `tickets/TICKET-301-iac-diagram.md` to show the agent traversing Terraform and producing an AWS architecture diagram with `awsdac`.
-4. Use `tickets/TICKET-201-backend-rca.md` to show git-history root-cause analysis.
+1. Start with `tickets/TICKET-101-intake-form-iceberg.md` to show an agent using Angular Signal Forms guidance.
+2. Use `tickets/TICKET-103-iceberg-design-system.md` to show source-aware design-system work with Iceberg.
+3. Use `tickets/TICKET-102-playwright-screenshots.md` to show browser/Playwright verification with screenshots.
+4. Use `tickets/TICKET-301-iac-diagram.md` to show the agent traversing Terraform and producing an AWS architecture diagram with `awsdac`.
+5. Use `tickets/TICKET-201-backend-rca.md` to show git-history root-cause analysis.
 
 ## Notes
 
