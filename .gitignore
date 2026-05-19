@@ -1,7 +1,8 @@
 node_modules/
 dist/
 !presentation/dist/
-!presentation/dist/*.pptx
+presentation/dist/*
+!presentation/dist/extending-the-harness.pptx
 .angular/
 coverage/
 target/
