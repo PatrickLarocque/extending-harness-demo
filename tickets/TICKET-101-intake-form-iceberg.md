@@ -1,12 +1,16 @@
-# TICKET-101: Polish Claim Intake With Iceberg
+# TICKET-101: Migrate Claim Intake To Signal Forms + Iceberg
 
 ## Problem
 
-The claim intake screen works, but it looks like a basic scaffold. Product wants it to feel like an internal Intact workflow using Iceberg conventions.
+The claim intake screen works with standard Reactive Forms, but the team wants to trial Angular 21's experimental Signal Forms API while also making the UI feel closer to an internal Intact workflow using Iceberg conventions.
+
+This is intentionally a sharp-edged task for the demo: try it once with a generic agent, then install or enable Angular-specific Signal Forms guidance and compare the result.
 
 ## Scope
 
-- Keep the Angular 21 experimental Signal Forms implementation.
+- Migrate the form from Reactive Forms to Angular 21 experimental Signal Forms.
+- Use `@angular/forms/signals`; do not keep `FormBuilder`, `FormGroup`, or `formControlName` in the final component.
+- Follow Angular's Signal Forms docs or an Angular Signal Forms skill before editing.
 - Inspect `packages/iceberg` before changing UI styles.
 - In a real Intact environment, fetch and inspect the actual Iceberg source with an opensrc-style tool before assuming component APIs.
 - Improve the page hierarchy, form grouping, validation presentation, and primary action state.
@@ -14,6 +18,7 @@ The claim intake screen works, but it looks like a basic scaffold. Product wants
 
 ## Acceptance Criteria
 
+- The component uses Signal Forms rather than Reactive Forms.
 - The page uses Iceberg tokens/classes rather than one-off styles where possible.
 - Required fields expose clear validation states after interaction.
 - The submit button disables while the form is invalid or submitting.
@@ -21,4 +26,4 @@ The claim intake screen works, but it looks like a basic scaffold. Product wants
 
 ## Demo Prompt
 
-> Pick up TICKET-101. Inspect the Angular app, the local Iceberg package, and Angular Signal Forms docs. Improve the claim intake UI while preserving Signal Forms. Run the frontend build.
+> Pick up TICKET-101. Migrate the claim intake form from Reactive Forms to Angular 21 Signal Forms, inspect the local Iceberg package before styling, and run the frontend build. If you are unsure about Signal Forms, read the relevant docs or installed Angular skills first.

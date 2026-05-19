@@ -7,35 +7,35 @@
     </p>
   </section>
 
-  <form class="ib-panel intake-panel" (submit)="submitIntake($event)" novalidate>
+  <form class="ib-panel intake-panel" [formGroup]="claimForm" (ngSubmit)="submitIntake()" novalidate>
     <div class="form-grid">
       <label class="ib-field">
         <span class="ib-label">Claimant name</span>
-        <input class="ib-input" type="text" autocomplete="name" [formField]="claimForm.claimantName">
-        @if (claimForm.claimantName().touched() && claimForm.claimantName().invalid()) {
+        <input class="ib-input" type="text" autocomplete="name" formControlName="claimantName">
+        @if (claimForm.controls.claimantName.touched && claimForm.controls.claimantName.invalid) {
           <span class="field-error">Claimant name is required.</span>
         }
       </label>
 
       <label class="ib-field">
         <span class="ib-label">Email</span>
-        <input class="ib-input" type="email" autocomplete="email" [formField]="claimForm.email">
-        @if (claimForm.email().touched() && claimForm.email().invalid()) {
+        <input class="ib-input" type="email" autocomplete="email" formControlName="email">
+        @if (claimForm.controls.email.touched && claimForm.controls.email.invalid) {
           <span class="field-error">Enter a valid email address.</span>
         }
       </label>
 
       <label class="ib-field">
         <span class="ib-label">Policy number</span>
-        <input class="ib-input" type="text" [formField]="claimForm.policyNumber">
-        @if (claimForm.policyNumber().touched() && claimForm.policyNumber().invalid()) {
+        <input class="ib-input" type="text" formControlName="policyNumber">
+        @if (claimForm.controls.policyNumber.touched && claimForm.controls.policyNumber.invalid) {
           <span class="field-error">Policy number is required.</span>
         }
       </label>
 
       <label class="ib-field">
         <span class="ib-label">Loss type</span>
-        <select class="ib-select" [formField]="claimForm.lossType">
+        <select class="ib-select" formControlName="lossType">
           <option>Auto collision</option>
           <option>Water damage</option>
           <option>Theft</option>
@@ -45,20 +45,20 @@
 
       <label class="ib-field">
         <span class="ib-label">Incident date</span>
-        <input class="ib-input" type="date" [formField]="claimForm.incidentDate">
-        @if (claimForm.incidentDate().touched() && claimForm.incidentDate().invalid()) {
+        <input class="ib-input" type="date" formControlName="incidentDate">
+        @if (claimForm.controls.incidentDate.touched && claimForm.controls.incidentDate.invalid) {
           <span class="field-error">Incident date is required.</span>
         }
       </label>
 
       <label class="ib-field">
         <span class="ib-label">Covered loss</span>
-        <input class="ib-input" type="number" [formField]="claimForm.coveredLoss">
+        <input class="ib-input" type="number" min="0" step="0.01" formControlName="coveredLoss">
       </label>
 
       <label class="ib-field">
         <span class="ib-label">Deductible</span>
-        <input class="ib-input" type="number" [formField]="claimForm.deductible">
+        <input class="ib-input" type="number" min="0" step="0.01" formControlName="deductible">
       </label>
     </div>
 

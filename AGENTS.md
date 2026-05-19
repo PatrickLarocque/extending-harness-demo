@@ -6,7 +6,8 @@ This repo is a presentation demo for AI-assisted software engineering. Favor sma
 
 - Read the relevant ticket in `tickets/` before changing code.
 - Prefer existing project docs and official framework docs over guessing APIs.
-- For Angular work, use Angular 21 patterns and the experimental Signal Forms API from `@angular/forms/signals`.
+- For Angular work, use Angular 21 patterns. Only use the experimental Signal Forms API from `@angular/forms/signals` when the ticket explicitly asks for it.
+- For Signal Forms work, consult installed Angular-specific skills or official Angular docs before editing; the API differs from Reactive Forms in important ways.
 - For Iceberg design-system work, inspect `packages/iceberg` first. In the real Intact environment, use an opensrc-style source fetch for the actual organization package before assuming component APIs.
 - For browser verification, use Playwright or an agent browser and capture screenshots when the ticket asks for visual proof.
 - For infrastructure diagrams, inspect Terraform first, then update or generate `infra/diagrams/claims-platform.awsdac.yaml`.
@@ -31,6 +32,7 @@ The point of this repo is to demonstrate surface area:
 
 - code + tests
 - browser + screenshots
+- framework skills and docs
 - design-system source
 - issue/ticket context
 - git history

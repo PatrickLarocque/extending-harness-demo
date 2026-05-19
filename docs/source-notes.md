@@ -6,6 +6,8 @@ These notes anchor the demo to current framework/tool behavior.
 
 Angular's Signal Forms documentation for v21 says Signal Forms are experimental, require Angular v21 or higher, and are imported from `@angular/forms/signals`. The sample code uses `signal`, `form`, `FormField`, and validators such as `required` and `email`.
 
+The demo app intentionally starts with standard Reactive Forms. `TICKET-101` asks the agent to migrate it to Signal Forms after consulting docs or an installed Angular skill.
+
 Source: https://angular.dev/guide/forms/signals/overview
 
 ## Spring Boot

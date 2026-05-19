@@ -6,16 +6,20 @@ This runbook keeps the live demo focused on harness surface area rather than rep
 
 Open `tickets/TICKET-101-intake-form-iceberg.md`.
 
-Ask the agent:
+First, ask the agent without installing any Angular Signal Forms skill:
 
-> Pick up TICKET-101. Inspect the Angular app, the local Iceberg package, and the Angular 21 Signal Forms docs. Improve the claim intake UI without replacing the experimental Signal Forms pattern. Run the frontend build when done.
+> Pick up TICKET-101. Migrate the claim intake form to Angular 21 Signal Forms and make it feel more like an Iceberg-based internal workflow. Use only the repo context you already have, then run the frontend build.
+
+Then install or enable the Angular Signal Forms skill and ask again:
+
+> Pick up TICKET-101. Migrate the claim intake form from Reactive Forms to Angular 21 Signal Forms, inspect Iceberg before styling, and run the frontend build.
 
 What this shows:
 
 - ticket context
 - repo inspection
 - source-aware design-system usage
-- framework-specific skill/docs usage
+- the gap between generic framework guessing and framework-specific skill/docs usage
 - build verification
 
 ## Segment 2: Browser Verification

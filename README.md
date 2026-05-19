@@ -7,7 +7,7 @@ The repo is intentionally small, but it has enough real edges for an agent to in
 ## Repository Map
 
 - `services/claims-api` — Spring Boot claims API with a seeded history regression for root-cause analysis.
-- `apps/claims-portal` — Angular 21 claims intake UI using experimental Signal Forms.
+- `apps/claims-portal` — Angular 21 claims intake UI that starts with Reactive Forms so a demo agent can migrate it to experimental Signal Forms.
 - `packages/iceberg` — local stand-in for the Iceberg design system package.
 - `infra/terraform` — Terraform for a small AWS claims platform.
 - `infra/diagrams` — AWS diagram-as-code input for `awsdac`.
@@ -33,7 +33,7 @@ awsdac ../diagrams/claims-platform.awsdac.yaml -o ../diagrams/claims-platform.pn
 
 ## Suggested Demo Flow
 
-1. Start with `tickets/TICKET-101-intake-form-iceberg.md` to show an agent reading ticket context, Angular docs, and the local design-system package.
+1. Start with `tickets/TICKET-101-intake-form-iceberg.md` to show an agent reading ticket context, Angular Signal Forms guidance, and the local design-system package.
 2. Use `tickets/TICKET-102-playwright-screenshots.md` to show browser/Playwright verification with screenshots.
 3. Use `tickets/TICKET-301-iac-diagram.md` to show the agent traversing Terraform and producing an AWS architecture diagram with `awsdac`.
 4. Use `tickets/TICKET-201-backend-rca.md` to show git-history root-cause analysis.
