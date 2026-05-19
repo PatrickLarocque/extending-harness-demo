@@ -1,5 +1,7 @@
 node_modules/
 dist/
+!presentation/dist/
+!presentation/dist/*.pptx
 .angular/
 coverage/
 target/
