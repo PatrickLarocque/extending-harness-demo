@@ -8,7 +8,7 @@ This folder contains the slide images, prompts, speaker notes, and generated Pow
 - `prompts/` — reproducible image-generation prompts.
 - `speaker-notes.md` — talk track and demo prompts.
 - `scripts/build-pptx.mjs` — stitches PNGs into a PowerPoint and embeds speaker notes.
-- `dist/extending-the-harness.pptx` — generated deck.
+- `deck/extending-the-harness.pptx` — generated deck.
 
 ## Rebuild
 

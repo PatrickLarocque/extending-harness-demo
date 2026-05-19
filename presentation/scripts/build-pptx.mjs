@@ -111,6 +111,6 @@ for (const item of slides) {
   slide.addNotes(item.notes);
 }
 
-await pptx.writeFile({ fileName: path.join(root, 'dist', 'extending-the-harness.pptx') });
+await pptx.writeFile({ fileName: path.join(root, 'deck', 'extending-the-harness.pptx') });
 
-console.log('Wrote presentation/dist/extending-the-harness.pptx');
+console.log('Wrote presentation/deck/extending-the-harness.pptx');
