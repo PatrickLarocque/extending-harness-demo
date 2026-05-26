@@ -1,6 +1,6 @@
 # Sources
 
-Only 2026-or-later sources were used for claims about the current AI engineering landscape.
+Only 2026-or-later sources were used for claims about the current AI engineering landscape. Current product documentation was used for tool mechanics and was accessed on May 26, 2026.
 
 ## AI Coding And Harnesses
 
@@ -12,6 +12,12 @@ Only 2026-or-later sources were used for claims about the current AI engineering
 
 ## Framework And Tool Docs
 
+- Claude Code MCP docs: https://code.claude.com/docs/en/mcp
+- Claude Code Skills docs: https://code.claude.com/docs/en/skills
+- Claude Code Hooks docs: https://code.claude.com/docs/en/hooks
+- Claude Code Subagents docs: https://code.claude.com/docs/en/sub-agents
+- Claude prompt caching docs: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+- OpenAI prompt caching docs: https://developers.openai.com/api/docs/guides/prompt-caching
 - Angular Signal Forms overview: https://angular.dev/guide/forms/signals/overview
 - Spring Boot project page: https://spring.io/projects/spring-boot
 - AWS Labs diagram-as-code: https://github.com/awslabs/diagram-as-code

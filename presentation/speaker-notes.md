@@ -4,11 +4,12 @@ Field notes for a 20-minute AI Chapter talk with slide interludes and live demos
 
 ## Timing
 
-- Slides 1-3: 4 minutes
-- Demo setup slide + frontend demos: 7 minutes
+- Slides 1-3: 3 minutes
+- Slides 4-9 primitive/context bridge: 5 minutes
+- Demo setup slide + frontend demos: 6 minutes
 - PSA: 3 minutes
-- Source/design-system or RCA demo: 4 minutes
-- Closing/Q&A: 2 minutes
+- Source/design-system or RCA demo: 3 minutes
+- Closing/Q&A: 1-2 minutes
 
 If time gets tight, skip the infrastructure diagram live demo and mention it as a repo exercise.
 
@@ -43,7 +44,77 @@ Key line:
 
 Do not make this a ranking. It is about exposure, form factor, and which levers are visible.
 
-## Slide 4: Let's Open the Workbench
+## Slide 4: Four Plugin Primitives
+
+This is the vocabulary bridge.
+
+Key line:
+
+> These are four common levers people can pull when they want the harness to see, do, or remember more than it does out of the box.
+
+Keep it fast. Name MCP, Skills, Hooks, and Subagents. This slide is not a taxonomy and not a maturity model.
+
+## Slide 5: MCP
+
+MCP is the connector/protocol side of the story.
+
+Key line:
+
+> MCP lets a harness discover capabilities from a server and hand usable definitions to the model.
+
+Walk the trace: `.mcp.json`, `tools/list`, tool definitions, then the system/context bar.
+
+Speaker beat:
+
+> This is not free. Tool definitions occupy context. Tool-search and lazy discovery patterns try to reduce that cost, but add their own tradeoffs.
+
+## Slide 6: Skills
+
+Skills are file-backed procedures.
+
+Key line:
+
+> A skill is a small procedure bundle. The description is the catalog entry; the deeper instructions, examples, scripts, and references come in when the model chooses it or you invoke it directly.
+
+Tie this to the Angular Signal Forms demo: without the skill, the agent has to guess; with the skill, it has a local procedure.
+
+## Slide 7: Hooks
+
+Hooks are harness events plus code.
+
+Key line:
+
+> Hooks are like red squiggles or IDE feedback for the harness: they can lint, check, block, call an LSP, or ask another reviewer to look at something.
+
+Emphasize the context-cost distinction:
+
+> Hooks are close to zero cost in the context window unless they intentionally report something back.
+
+## Slide 8: Subagents
+
+Subagents split work into separate contexts.
+
+Key line:
+
+> A subagent is useful when a bounded task deserves its own prompt, tool permissions, and context window.
+
+Good examples: review changed code, research a dependency, inspect a frontend screenshot, diagnose test failure.
+
+Do not oversell it:
+
+> The main thread still has to integrate and verify the result.
+
+## Slide 9: Context Window
+
+This is the cost model.
+
+Key line:
+
+> Every lever competes for the same finite workspace.
+
+Explain that long or crowded contexts can make work more brittle. Then explain prompt caching: a stable prefix can be much cheaper, but changing early prompt material like tool definitions, system instructions, or tool schemas can invalidate the cache.
+
+## Slide 10: Let's Open the Workbench
 
 Transition to the repo.
 
@@ -65,7 +136,7 @@ Then install or enable Angular Signal Forms guidance and rerun:
 Pick up TICKET-101. Migrate the claim intake form from Reactive Forms to Angular 21 Signal Forms and run the frontend build. If you are unsure about Signal Forms, read the relevant docs or installed Angular skills first.
 ```
 
-## Slide 5: New Senses
+## Slide 11: New Senses
 
 Debrief the first demo.
 
@@ -75,7 +146,7 @@ Key line:
 
 Name the senses: ticket context, repo structure, framework guidance, build output, browser screenshots, source packages. The model is not magically wiser; it has better grounding and feedback.
 
-## Slide 6: Throughput Theater
+## Slide 12: Throughput Theater
 
 This is the PSA. Keep it sharp, not bitter.
 
@@ -93,7 +164,7 @@ Personal opinion:
 
 > Models are goal-driven. They optimize for the local instruction. They do not bear responsibility for the code they generate, and they do not feel the pain of maintaining a messy codebase. That responsibility still belongs to us.
 
-## Slide 7: Source of Truth
+## Slide 13: Source of Truth
 
 Set up the Iceberg/source demo.
 
@@ -117,7 +188,7 @@ Prompt:
 We observed reserve estimates increasing by the deductible after March 12, 2026. Use git history and tests to identify the most probable cause. Do not fix it yet; give me the commit, changed line, and reasoning.
 ```
 
-## Slide 8: Where to next?
+## Slide 14: Where to next?
 
 Close with the organizational framing.
 
@@ -137,5 +208,11 @@ Then Q&A.
 - Harness, 2026 developer productivity measurement survey: https://www.harness.io/press-and-news/ai-has-outpaced-how-engineering-organizations-measure-developer-productivity
 - Constraint Decay, 2026: https://arxiv.org/abs/2605.06445
 - SWE-CI, 2026: https://arxiv.org/abs/2603.03823
+- Claude Code MCP docs: https://code.claude.com/docs/en/mcp
+- Claude Code Skills docs: https://code.claude.com/docs/en/skills
+- Claude Code Hooks docs: https://code.claude.com/docs/en/hooks
+- Claude Code Subagents docs: https://code.claude.com/docs/en/sub-agents
+- Anthropic prompt caching docs: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+- OpenAI prompt caching docs: https://developers.openai.com/api/docs/guides/prompt-caching
 - Angular Signal Forms docs: https://angular.dev/guide/forms/signals/overview
 - AWS Labs diagram-as-code: https://github.com/awslabs/diagram-as-code

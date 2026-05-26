@@ -28,6 +28,54 @@ The important shift is not just model capability. It is the interface around the
 These are all harnesses, but they expose different amounts of the machinery. This is not a ranking. It is about exposure and which levers are visible.`
   },
   {
+    image: '04-plugin-primitives.png',
+    notes: `This is the vocabulary bridge.
+
+These are not the only extension points, but they are four useful primitives people will encounter: MCP, Skills, Hooks, and Subagents.
+
+Keep this quick. The point is to name the levers before showing what they look like.`
+  },
+  {
+    image: '05-mcp-v2.png',
+    notes: `MCP is the connector/protocol side of the story.
+
+Client config points the harness at a server. The client asks for capabilities, like tools/list, and the returned tool definitions become callable capabilities for the model.
+
+Speaker beat: this is not free. Tool definitions occupy context. Tool-search and lazy discovery patterns try to reduce that cost, but add their own tradeoffs around discoverability, cache stability, and whether the right tool is visible when the model needs it.`
+  },
+  {
+    image: '06-skills.png',
+    notes: `Skills are file-backed procedures.
+
+The lightweight catalog entry is the description/frontmatter. The full SKILL.md, references, scripts, and examples are only useful once the model chooses the skill, or once you invoke it explicitly by name.
+
+Speaker beat: this is how you give the model local habits and workflows without dumping every procedure into the prompt all the time.`
+  },
+  {
+    image: '07-hooks.png',
+    notes: `Hooks are harness events plus code.
+
+They can run before or after tool use, match on edits or writes, wait for idle moments, lint changed files, call an LSP, launch a reviewer, or block risky behavior.
+
+Speaker beat: hooks are close to a zero-context-cost abstraction. They do not add much to the context window unless they intentionally report something back. Think red squiggles, CI checks, or IDE feedback for the harness.`
+  },
+  {
+    image: '08-subagents.png',
+    notes: `Subagents split work into separate contexts.
+
+They can be useful for bounded research, review, frontend critique, test diagnosis, or migration sweeps. Each can have a different prompt and tool set.
+
+Speaker beat: this keeps the main context cleaner, but it does not remove judgment. The parent thread still has to integrate and verify the result.`
+  },
+  {
+    image: '09-context-window.png',
+    notes: `This is the cost model.
+
+Every extension point competes for the same finite context window. As context fills up, work gets more brittle: the model has more to attend to, more stale material, and less room for the actual task.
+
+Prompt caching can make stable prefixes much cheaper, but the prefix has to stay stable. If tool definitions, system instructions, or other early prompt material change, the cache can miss and the request becomes more expensive again.`
+  },
+  {
     image: '04-open-the-workbench.png',
     notes: `Transition to the repo.
 
